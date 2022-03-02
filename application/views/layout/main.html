@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Belajar Codeigniter</title>
+    <meta name="description" content="Poin of sales sederhana" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Load Bootstrap CSS & Custom CSS -->
+    <link rel="stylesheet" href="{{baseUrl}}/assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{baseUrl}}/assets/custom.css" />
+
+    <!-- Load Jquery dan Bootsrap JS -->
+    <script src="{{baseUrl}}/assets/jquery.min.js"></script>
+    <script src="{{baseUrl}}/assets/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-light">
+    <div class="halaman">
+        <nav class="navbar navbar-expand-md fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{baseUrl}}">CRM Majoo</a>
+                <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                    <i class="fa fa-align-justify" id="toggle-nav"></i>
+                </button>
+
+                <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{baseUrl}}user">
+                                Daftar Pengguna
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="form-inline form-top my-2 my-lg-0">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="rightMenu"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-user"></i> Akun Saya</a>
+                            <div class="dropdown-menu" aria-labelledby="rightMenu">
+                                <a class="dropdown-item" href="{{baseUrl}}user/logout"><i class="fa fa-sign-out"></i>
+                                    Logout</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main" class="container">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">2022 © PT Majoo Indonesia</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

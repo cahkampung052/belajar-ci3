@@ -1,0 +1,61 @@
+{% extends "layout/main.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form method="post" action="{{action}}">
+                <div class="card-header">
+                    <h6 class="pb-2 mb-0 tittle-form">
+                        {{tittle}}
+                    </h6>
+                </div>
+                <div class="card-body">
+                    {% if error is defined and error is not null %}
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nama" class="control-label required">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="nama" value="{{data.nama}}"
+                                placeholder="Masukkan Nama Pengguna" />
+                            <input type="hidden" class="form-control" name="id" id="id" value="{{data.id}}" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="email" class="control-label required">Email</label>
+                            <input type="text" class="form-control" name="email" id="email" value="{{data.email}}"
+                                placeholder="Masukkan Email Pengguna" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="password" class="control-label required">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" value="{{data.password}}"
+                                placeholder="Masukkan Password Pengguna" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            <div class="float-left">
+                                <a href="{{baseUrl}}/user" class="btn btn-info btn-sm">
+                                    Daftar Pengguna
+                                </a>
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    Simpan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

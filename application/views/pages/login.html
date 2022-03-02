@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Belajar Codeigniter</title>
+	<meta name="description" content="Poin of sales sederhana">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Load Bootstrap CSS & Custom CSS -->
+	<link rel="stylesheet" href="{{baseUrl}}/assets/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{{baseUrl}}/assets/custom.css" />
+</head>
+
+<body class="body-login">
+
+	<div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-5">
+                    <div id="login-box" class="col-md-12">
+						<form id="login-form" action="{{baseUrl}}/login/action" method="post">
+                            {% if error is defined and error is not null %}
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger">
+                                            {{error}}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+							<div class="form-group">
+								<label for="email" class="control-label">Email address</label>
+								<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+							</div>
+							<div class="form-group">
+								<label for="password" class="control-label">Password</label>
+								<input type="password" name="password" class="form-control" id="password">
+							</div>
+							<button type="submit" class="btn btn-primary btn-block btn-login">Login</button>
+						</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Load Jquery dan Bootsrap JS -->
+	<script src="{{baseUrl}}/assets/jquery.min.js"></script>
+	<script src="{{baseUrl}}/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
