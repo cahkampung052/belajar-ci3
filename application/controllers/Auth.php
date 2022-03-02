@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Auth extends CI_Controller {
 
     public function __construct()
     {
@@ -14,19 +14,18 @@ class Login extends CI_Controller {
 	public function index()
 	{
         // Jika sudah ada session langsung arahkan ke home
-		if($this->session->userdata('nama') === null) {
-            
-            // Render view login
-            view('pages/login.html', [
-                'baseUrl' => base_url(),
-                'error' => $this->session->flashdata('error') ?? null
-            ]);
+		if($this->session->userdata('nama')) {
+            redirect('welcome');
 		}
 
-        redirect('welcome');        
+        // Render view login
+        view('pages/login.html', [
+            'baseUrl' => base_url(),
+            'error' => $this->session->flashdata('error') ?? null
+        ]);
 	}
 
-    public function action() 
+    public function loginAction() 
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -49,4 +48,11 @@ class Login extends CI_Controller {
         // Render view home
         redirect('welcome');
     }
+
+    public function logout() {
+		$this->session->unset_userdata(['id', 'nama', 'email']);
+        echo $this->session->userdata('nama');
+        die;
+		// redirect('login');
+	}
 }

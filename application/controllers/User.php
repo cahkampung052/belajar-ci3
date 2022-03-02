@@ -10,8 +10,10 @@ class User extends CI_Controller {
         $this->load->helper(['url', 'view']);
 		$this->load->model('user_model');
 
-        // cek jika belum mempunyai session
-        if($this->session->userdata('nama') === null) {
+        // cek jika belum mempunyai session redirect ke login
+        if($this->session->userdata('nama')) {
+			// do nothing
+		} else {
 			redirect('login');
 		}
 	}
